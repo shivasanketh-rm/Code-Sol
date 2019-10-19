@@ -1,2 +1,2 @@
 # leetCodeSol
-My Leet Code solution
+My LeetCode, HackerRank, Codility solution
