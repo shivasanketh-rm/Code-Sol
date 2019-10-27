@@ -32,3 +32,35 @@ Definition for singly-linked list.
             return cur.next
         
 ---------------------------------------------------------------------------------------------------------------
+
+
+*Given a string, find the length of the longest substring without repeating characters. * 
+Input: "abcabcbb"
+Output: 3 
+Explanation: The answer is "abc", with the length of 3. 
+
+Input: "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+
+Input: "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3. 
+             Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+
+    class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        substring = ''
+        max_length = 0
+        for c in s:
+            if c not in substring:
+                substring += c
+            else:
+                substring = substring[substring.index(c) + 1:] + c
+            #5 check max length between current max with new length of seen
+            if max_length < len(substring):
+                max_length = len(substring)
+        return max_length
+        
+-----------------------------------------------------------------------------------------------------------
