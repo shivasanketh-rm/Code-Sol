@@ -65,3 +65,64 @@ Explanation: The answer is "wke", with the length of 3.
         return max_length
         
 -----------------------------------------------------------------------------------------------------------
+
+
+# Valid Parentheses (Easy):
+
+* Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.*
+Example 1:
+
+Input: "()"
+Output: true
+Example 2:
+
+Input: "()[]{}"
+Output: true
+Example 3:
+
+Input: "(]"
+Output: false
+Example 4:
+
+Input: "([)]"
+Output: false
+Example 5:
+
+Input: "{[]}"
+Output: true
+
+
+    class Solution:
+    def isValid(self, s: str) -> bool:
+        dict1 = {
+            '(' : ')',
+            '[' : ']',
+            '{' : '}'
+        }
+        
+        result_list = []
+
+        for i in range(len(s)):
+            print(s[i])
+            if s[i] in dict1:
+                result_list.insert(0,s[i])
+            elif s[i]:
+                if result_list == [] :
+                    return False
+                if s[i] == dict1[result_list[0]]:
+                    result_list.pop(0)
+                else:
+                    return False
+        if result_list == [] :
+            return True
+        else:
+            return False
+            
+-------------------------------------------------------------------------------------------------------------
+
