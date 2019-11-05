@@ -157,3 +157,27 @@ Explanation: There is no common prefix among the input strings.
         return(longest_prefix)
         
 -----------------------------------------------------------------------------------------------------------------
+
+# Multiply Substrings
+
+*Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.*
+
+Example 1:
+
+Input: num1 = "2", num2 = "3"
+Output: "6"
+Example 2:
+
+Input: num1 = "123", num2 = "456"
+Output: "56088"
+
+    class Solution:
+    def multiply(self, num1: str, num2: str) -> str:
+        zero = ord('0')
+        num1_integer = [(ord(num1[i]) - zero) * pow(10,len(num1) - i -1) for i in range(len(num1))]
+        num2_integer = [(ord(num2[j]) - zero) * pow(10,len(num2) - j -1) for j in range(len(num2))]
+        num1_integer = sum(num1_integer)
+        num2_integer = sum(num2_integer)
+        return str(num1_integer * num2_integer)
+        
+----------------------------------------------------------------------------------------------------------------------
