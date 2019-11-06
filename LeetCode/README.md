@@ -208,3 +208,21 @@ Explanation: You need to reduce multiple spaces between two words to a single sp
         return(" ".join(list1[::-1]))
         
 ----------------------------------------------------------------------------------------------------------------
+
+# Reverse Words II
+* Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.* 
+
+Example 1:
+Input: "Let's take LeetCode contest"
+Output: "s'teL ekat edoCteeL tsetnoc"
+    
+    class Solution:
+    def reverseWords(self, s: str) -> str:
+        sent_list = s.split(" ")
+        #print(sent_list)
+        res_list = []
+        for i in sent_list:
+            res_list.append(i[::-1])
+        res_string = " ".join(res_list)
+        return(res_string)
+-------
